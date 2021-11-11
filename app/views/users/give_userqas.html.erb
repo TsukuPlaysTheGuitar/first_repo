@@ -1,0 +1,89 @@
+<div class="container">
+    <div id="qnPage">
+        <p>問題:</p>
+        <p id="question"></p>
+        <input id="seeAns" type="button" value="答えを見る">
+        <p><%= link_to("クイズをやめる", "/users/#{@current_user.id}/home") %></p>
+    </div>
+    <div id="ansPage">
+        <p>答え:</p>
+        <p id="answer"></p>
+        <input id="toNextQn" type="button" value="次の問題へ">
+        <p><%= link_to("クイズをやめる", "/users/#{@current_user.id}/home") %></p>
+    </div>
+    <div id="last-anspage">
+        <p>答え:</p>
+        <p id="lastAnswer"></p>
+        <div class="quizAllEnd">
+            <p>クイズはこれで終わりです。</p>
+            <p>お疲れ様でした。</p>
+        </div>
+        <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
+    </div>
+</div>
+
+<script>
+    //RubyでDBから取り出したデータ配列をJSに引き渡す--------
+    var qnsArray = new Array;
+    var anssArray = new Array;
+    qnsArray = gon.qns;
+    anssArray = gon.anss;
+    //---------------------------------------------------------
+
+    //各ページ--------------------------------------------------
+    const divQnPage = document.getElementById('qnPage');
+    const divAnsPage = document.getElementById('ansPage');
+    const divLastAnsPage = document.getElementById('last-anspage');
+    //--------------------------------------------------------------
+
+    //問題, 解答欄----------------------------------------------------
+    const divQuestion = document.getElementById('question');
+    const divAnswer = document.getElementById('answer');
+    const divLastAns = document.getElementById('lastAnswer');
+    //---------------------------------------------------------------
+
+    //ボタン----------------------------------------------------------
+    const divSeeAns = document.getElementById('seeAns');
+    const divToNextQn = document.getElementById('toNextQn');
+    //--------------------------------------------------------------
+
+    //初期状態を表現-------------------------------------------
+    //問題欄, 解答欄にはrubyがシャッフルした配列の1番目を表示
+    //問題表示画面だけ表示し、解答表示画面, 最終解答画面は非表示とする
+    divQuestion.innerHTML = qnsArray[0];
+    divAnswer.innerHTML = anssArray[0];
+    let i = anssArray.length - 1;
+    divLastAns.innerHTML = anssArray[i];
+    divQnPage.style.display = "block";
+    divAnsPage.style.display = "none";
+    divLastAnsPage.style.display = "none";
+    //-------------------------------------------------------
+
+    //ボタンが押された時の反応に必要なnを用意---
+    let n = 0;
+    //------------------------------------
+
+    //答えを見るボタンが押された時の処理(問題表示画面)---------
+    divSeeAns.addEventListener('click', function () {
+        if (n == i) {
+            divQnPage.style.display = "none";
+            divAnsPage.style.display = "none";
+            divLastAnsPage.style.display = "block";
+        } else {
+            divQnPage.style.display = "none";
+            divAnsPage.style.display = "block";
+            divLastAnsPage.style.display = "none";
+        }
+    });
+    //--------------------------------------------------
+
+    //次の問題へボタンが押された時の処理(解答表示画面)----------
+    divToNextQn.addEventListener('click', function () {
+        divQnPage.style.display = "block";
+        divAnsPage.style.display = "none";
+        n = n + 1;
+        divQuestion.innerHTML = qnsArray[n];
+        divAnswer.innerHTML = anssArray[n];
+    });
+    //--------------------------------------------------
+</script>

@@ -1,0 +1,38 @@
+<!-- それぞれのユーザーにそれぞれ異なる問題一覧を表示するページ -->
+<!-- /qns/:id/indexをルーティングにするつもり -->
+
+<div class="container">
+    <div class="yourqas-container">
+        <div class="nameTag">
+            <p>〜あなたが作った問題〜</p>
+        </div>
+        <div class="qanda-container">
+            <p class="noqas-message"><%= @noqas_message %></p>
+            <% @yourqas.each do |yourqa| %>
+            <div class="aSetOf-qas">
+                <p><%= link_to(yourqa.question, "/qns/#{yourqa.id}/show") %></p>
+                <p><%= link_to(yourqa.answer, "/qns/#{yourqa.id}/show") %></p>
+            </div>
+            <% end %>
+        </div>
+        <div>
+            <%= link_to("あなたの問題を追加する", "/users/#{@current_user.id}/addyourqn") %>
+        </div>
+    </div>
+    <div class="originalqas-container">
+        <div class="nameTag">
+            <p>〜既存の問題〜</p>
+        </div>
+        <div class="qanda-container">
+            <% @original_qas.each do |originalqa| %>
+            <div class="aSetOf-qas">
+                <p><%= originalqa.question %></p>
+                <p><%= originalqa.answer %></p>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
+    </div>
+</div>

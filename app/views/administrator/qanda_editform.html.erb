@@ -1,0 +1,16 @@
+<div class="container">
+    <p>qanda_editform</p>
+    <%= form_tag("/administrator/#{@qanda.id}/qandaedit") do %>
+    <div>
+        <p>Question:</p>
+        <textarea name="question" style="width: 30%"><%= @qanda.question %></textarea>
+    </div>
+    <div>
+        <p>Answer:</p>
+        <textarea name="answer" style="width: 30%"><%= @qanda.answer %></textarea>
+    </div>
+    <div>
+        <input type="submit" value="保存">
+    </div>
+    <% end %>
+</div>

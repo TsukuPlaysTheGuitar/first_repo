@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="qanda-container">
+        <p><%= @qanda.question %></p>
+        <p><%= @qanda.answer %></p>
+        <%= link_to("編集", "/qns/#{@qanda.id}/editform") %>
+        <%= link_to("削除", "/qns/#{@qanda.id}/destroy", {method: "post"}) %>
+    </div>
+    <div>
+        <p><%= link_to("出題問題一覧へ戻る", "/users/#{@current_user.id}/index") %></p>
+    </div>
+    <div>
+        <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
+    </div>
+</div>

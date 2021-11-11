@@ -1,0 +1,9 @@
+<div class="container">
+    <%= form_tag("/qns/#{@qanda.id}/edit") do %>
+    <p>問題:</p>
+    <textarea name="question"><%= @qanda.question %></textarea>
+    <p>答え:</p>
+    <textarea name="answer"><%= @qanda.answer %></textarea>
+    <p><input type="submit" value="保存"></p>
+    <% end %>
+</div>

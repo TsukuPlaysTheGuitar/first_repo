@@ -1,0 +1,18 @@
+<div>
+    <p>add_qas</p>
+    <h3>問題と答えを入力してください</h3>
+    <% @qanda.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+    <%= form_tag("/administrator/create") do %>
+    <div>
+        <p>問題文</p>
+        <input type="text" name="question" value="<%= @question %>">
+    </div>
+    <div>
+        <p>答え</p>
+        <input type="text" name="answer" value="<%= @answer %>">
+    </div>
+    <input type="submit" value="追加">
+    <% end %>
+</div>

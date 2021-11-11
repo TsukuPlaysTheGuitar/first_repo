@@ -1,0 +1,2 @@
+module QnsHelper
+end

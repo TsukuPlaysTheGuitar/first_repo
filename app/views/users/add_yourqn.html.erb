@@ -1,0 +1,20 @@
+<div class="container">
+    <p>問題と答えを入力してください</p>
+    <% @yourqa.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+    <%= form_tag("/qns/create") do %>
+    <div>
+        <p>問題文</p>
+        <input type="text" style="width: 40%" name="qn" value="<%= @qn %>">
+    </div>
+    <div>
+        <p>答え</p>
+        <input type="text" style="width: 40%" name="ans" value="<%= @ans %>">
+    </div>
+    <input type="submit" value="追加">
+    <% end %>
+    <div>
+        <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
+    </div>
+</div>

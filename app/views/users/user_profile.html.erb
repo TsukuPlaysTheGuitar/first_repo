@@ -1,0 +1,15 @@
+<div class="container">
+    <p>登録情報</p>
+    <%= form_tag("/users/#{@current_user.id}/profileedit") do %>
+    <div class="partOfProfile">
+        <p>ユーザーネーム:</p>
+        <input type="text" name="name" value="<%= @user.name %>">
+    </div>
+    <div class="partOfProfile">
+        <p>パスワード:</p>
+        <input type="text" name="password" value="<%= @user.password %>">
+    </div>
+    <p><input type="submit" value="保存"></p>
+    <% end %>
+    <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
+</div>

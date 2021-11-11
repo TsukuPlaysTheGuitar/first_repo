@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="welcome">
+        <h2>Welcome, <%= @current_user.name%>!!</h2>
+    </div>
+    <div class="user-menus">
+        <p><%= link_to("出題開始(アプリ収録問題)", "/users/#{@current_user.id}/giveqas") %></p>
+        <p><%= link_to("出題開始(あなたの問題)", "/users/#{@current_user.id}/giveuserqas") %></p>
+        <p><%= link_to("出題問題一覧", "/users/#{@current_user.id}/index") %></p>
+    </div>
+</div>

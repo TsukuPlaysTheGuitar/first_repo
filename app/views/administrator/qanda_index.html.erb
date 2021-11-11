@@ -1,0 +1,10 @@
+<div class="container">
+    <p>収録問題</p>
+    <% @qanda.each do|qanda| %>
+    <div class="aSetOf-qas">
+        <p><%= link_to(qanda.question, "/administrator/#{qanda.id}/qandaeditform") %></p>
+        <p><%= link_to(qanda.answer, "/administrator/#{qanda.id}/qandaeditform")%></p>
+    </div>
+    <% end %>
+    <p><%= link_to("管理者として問題を追加する", "/administrator/addqas") %></p>
+</div>
