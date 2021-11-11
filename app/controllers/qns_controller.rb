@@ -1,6 +1,6 @@
 class QnsController < ApplicationController
     before_action :youNeedToLogIn
-    before_action :youAreNotCorrectUserQns, {except: [:create]}
+    before_action :youAreNotCorrectUserQns, except: [:create]
 
     def youAreNotCorrectUserQns
         qn = Qn.find_by(id: params[:id])

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     before_action :youNeedToLogIn, except: [:youAreNotCorrectUser, :login_form, :login, :new, :create]
     before_action :forbidLoginUser, only: [:new, :login_form]
-    before_action :youAreNotCorrectUser, except: [:login_form, :login, :logout, :new]
+    before_action :youAreNotCorrectUser, except: [:login_form, :login, :logout, :new, :create]
 
     #あるログインユーザーが他ユーザのidをURLに含めてリクエストすることで他ユーザのページたちを閲覧するのをブロックする
     def youAreNotCorrectUser
