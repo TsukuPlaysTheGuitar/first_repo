@@ -6,13 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: 'theking',
-            password: 'kanri_nin',
-            administrator: true)
+User.create!(
+    name: 'theking',
+    password: 'kanri_nin',
+    administrator: true
+)
 
-Qn.create!(question: '迷っているんだったら、やったほうがいいよ。',
-          answer: 'If you cannot decide, you shoud try it.',
-          originality: 'yes')
+Qn.create!(
+    question: '迷っているんだったら、やったほうがいいよ。',
+    answer: 'If you cannot decide, you shoud try it.',
+    originality: 'yes'
+)
 
 Qn.create!(question: "運転をするとその人の本性が出ると思う",
           answer: "How you drive a car reveals your character.",

@@ -61,6 +61,7 @@ class UsersController < ApplicationController
 
     #新規ユーザー登録画面へ移動
     def new
+        User.new
     end
 
     # 新規ユーザーをDBに追加

@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   post "administrator/create" => "administrator#create"
 
   get "loginform" => "users#login_form"
+  get "signup" => "users#new"
+  post "create" => "users#create"
   post "login" => "users#login"
   post "logout" => "users#logout"
-  get "signup" => "users#new"
   
   get "users/:id/home" => "users#user_home"
   get "users/:id/profile" => "users#user_profile"
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   get "users/:id/addyourqn" => "users#add_yourqn"
   get "users/:id/giveqas" => "users#give_qas"
   get "users/:id/giveuserqas" => "users#give_userqas"
-  post "users/create" => "users#create"
   post "users/:id/profileedit" => "users#profile_edit"
   
   get "qns/:id/editform" => "qns#edit_form"
