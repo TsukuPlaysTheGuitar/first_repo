@@ -73,6 +73,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to("/users/#{session[:user_id]}/home")
         else
+            flash[:notice] = "保存できていません"
             @name = params[:name]
             @password = params[:password]
             render("users/new")
