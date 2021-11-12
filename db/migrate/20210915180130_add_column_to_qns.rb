@@ -1,4 +1,4 @@
-class AddColumunToQns < ActiveRecord::Migration[6.1]
+class AddColumnToQns < ActiveRecord::Migration[6.1]
   def change
     add_column :qns, :user_id, :string
     add_column :qns, :originality, :string
