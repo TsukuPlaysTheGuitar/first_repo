@@ -72,7 +72,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         if @user.administrator == true
             flash[:notice] = "管理人アカウントは削除できません"
-            render("administrator/admin_home")
+            render("users/user_home")
         else
             @user.destroy
             flash[:notice] = "#{@user.name}のアカウントが削除されました"
