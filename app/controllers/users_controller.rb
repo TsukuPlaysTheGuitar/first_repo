@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-    before_action :youNeedToLogIn, except: [:youAreNotCorrectUser, :login_form, :login, :new, :create]
-    before_action :forbidLoginUser, only: [:new, :login_form]
-    before_action :youAreNotCorrectUser, except: [:login_form, :login, :logout, :new, :create]
+    before_action :youNeedToLogIn, {except: [:youAreNotCorrectUser, :login_form, :login, :new, :create]}
+    before_action :forbidLoginUser, {only: [:new, :login_form]}
+    before_action :youAreNotCorrectUser, {except: [:login_form, :login, :logout, :new, :create]}
 
     #あるログインユーザーが他ユーザのidをURLに含めてリクエストすることで他ユーザのページたちを閲覧するのをブロックする
     def youAreNotCorrectUser
@@ -48,20 +48,29 @@ class UsersController < ApplicationController
         @user = User.find_by(id: @current_user.id)
     end
 
-    def profile_edit
+    def userinfo_edit
         @user = User.find_by(id: params[:id])
         @user.name = params[:name]
         @user.password = params[:password]
         if @user.save
+            flash[:notice] = "ユーザー情報が変更されました"
             redirect_to("/users/#{@current_user.id}/home")
         else
+            flash[:notice] = ""
             render("users/user_profile")
+        end
+    end
+
+    def delete_account
+        @user = User.find_by(id: params[:id])
+        if @user.destroy
+            flash[:notice] = "#{@user.name}のアカウントが削除されました"
+            redirect_to("/")
         end
     end
 
     #新規ユーザー登録画面へ移動
     def new
-        User.new
     end
 
     # 新規ユーザーをDBに追加

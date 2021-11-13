@@ -1,6 +1,6 @@
 <div class="container">
     <p>登録情報</p>
-    <%= form_tag("/users/#{@current_user.id}/profileedit") do %>
+    <%= form_tag("/users/#{@current_user.id}/userinfoedit") do %>
     <div class="partOfProfile">
         <p>ユーザーネーム:</p>
         <input type="text" name="name" value="<%= @user.name %>">
@@ -11,5 +11,8 @@
     </div>
     <p><input type="submit" value="保存"></p>
     <% end %>
+    <div class="deleteAccount">
+        <%= link_to("アカウント削除", "/users/#{@current_user.id}/delete_account") %>
+    </div>
     <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
 </div>

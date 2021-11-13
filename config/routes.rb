@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get "users/:id/addyourqn" => "users#add_yourqn"
   get "users/:id/giveqas" => "users#give_qas"
   get "users/:id/giveuserqas" => "users#give_userqas"
-  post "users/:id/profileedit" => "users#profile_edit"
+  post "users/:id/userinfoedit" => "users#userinfo_edit"
   
   get "qns/:id/editform" => "qns#edit_form"
   get "qns/:id/show" => "qns#show_userqas"
