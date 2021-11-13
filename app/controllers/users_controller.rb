@@ -43,6 +43,12 @@ class UsersController < ApplicationController
     end
 
     def user_home
+        @user = User.find_by(id: params[:id])
+        if @user.administrator == true
+            redirect_to("/administrator/home")
+        else
+            redirect_to("/users/#{@user.id}/home")
+        end
     end
 
     def user_profile
