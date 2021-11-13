@@ -12,7 +12,7 @@
     <p><input type="submit" value="保存"></p>
     <% end %>
     <div class="deleteAccount">
-        <%= link_to("アカウント削除", "/users/#{@current_user.id}/delete_account") %>
+        <%= link_to("アカウント削除", "/users/#{@current_user.id}/deleteaccount", {method: "post"}) %>
     </div>
     <p><%= link_to("ユーザーズホームへ戻る", "/users/#{@current_user.id}/home") %></p>
 </div>

@@ -63,10 +63,9 @@ class UsersController < ApplicationController
 
     def delete_account
         @user = User.find_by(id: params[:id])
-        if @user.destroy
-            flash[:notice] = "#{@user.name}のアカウントが削除されました"
-            redirect_to("/")
-        end
+        @user.destroy
+        flash[:notice] = "#{@user.name}のアカウントが削除されました"
+        redirect_to("/")
     end
 
     #新規ユーザー登録画面へ移動
