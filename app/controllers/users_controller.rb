@@ -29,6 +29,7 @@ class UsersController < ApplicationController
             end
         
         else
+            flash[:notice] = "アカウントが存在しないか、ログイン情報が間違っています"
             @name = params[:name]
             @password = params[:password]
             render("users/login_form")
