@@ -70,9 +70,15 @@ class UsersController < ApplicationController
 
     def delete_account
         @user = User.find_by(id: params[:id])
-        @user.destroy
-        flash[:notice] = "#{@user.name}のアカウントが削除されました"
-        redirect_to("/")
+        if @user.administrator == true
+            flash[:notice] = "管理人アカウントは削除できません"
+            render("users/user_profile")
+        else
+            @user.destroy
+            flash[:notice] = "#{@user.name}のアカウントが削除されました"
+            redirect_to("/")
+        end
+        
     end
 
     #新規ユーザー登録画面へ移動
