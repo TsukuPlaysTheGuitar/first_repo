@@ -22,11 +22,7 @@ class UsersController < ApplicationController
         if @user
             flash[:notice] = "ログインしました"
             session[:user_id] = @user.id
-            if @user.administrator == false
-                redirect_to("/users/#{session[:user_id]}/home")
-            else 
-                redirect_to("/administrator/home")
-            end
+            redirect_to("/users/#{session[:user_id]}/home")
             #if @user.administrator == true
                 #redirect_to("/administrator/home")
             #else 
