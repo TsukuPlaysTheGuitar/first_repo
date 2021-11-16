@@ -22,7 +22,11 @@ class UsersController < ApplicationController
         if @user
             flash[:notice] = "ログインしました"
             session[:user_id] = @user.id
-            redirect_to("/users/#{session[:user_id]}/home")
+            if @user.adiministrator == true
+                redirect_to("/administrator/home")
+            else
+                redirect_to("/users/#{session[:user_id]}/home"
+            end
         else
             flash[:notice] = "アカウントが存在しないか、ログイン情報が間違っています"
             @name = params[:name]
@@ -39,11 +43,6 @@ class UsersController < ApplicationController
 
     def user_home
         @user = User.find_by(id: params[:id])
-        if @user.administrator == true
-            redirect_to("/administrator/home")
-        else
-            redirect_to("/users/#{@user.id}/home")
-        end
     end
 
     def user_profile
