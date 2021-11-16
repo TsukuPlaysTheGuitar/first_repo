@@ -25,7 +25,7 @@ class UsersController < ApplicationController
             num = session[:user_id]
             if @user.administrator == true
                 redirect_to("/administrator/home")
-            else
+            elsif @user.administrator == false
                 redirect_to("/users/#{num}/home")
             end
         
