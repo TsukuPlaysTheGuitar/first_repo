@@ -23,11 +23,11 @@ class UsersController < ApplicationController
             flash[:notice] = "ログインしました"
             session[:user_id] = @user.id
             redirect_to("/users/#{session[:user_id]}/home")
-            #if @user.administrator == true
-                #redirect_to("/administrator/home")
-            #else 
-                #redirect_to("/users/#{session[:user_id]}/home")
-            #end
+            if @user.administrator == true
+                redirect_to("/administrator/home")
+            else 
+                redirect_to("/users/#{session[:user_id]}/home")
+            end
         else
             flash[:notice] = "アカウントが存在しないか、ログイン情報が間違っています"
             @name = params[:name]
