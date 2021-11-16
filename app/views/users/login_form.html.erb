@@ -2,7 +2,7 @@
     <div class="pleaseLogin">
         <p>ログイン情報を入力してください</p>
     </div>
-    <%= form_tag("/login") do %>
+    <%= form_tag("/login", {method: "post"}) do %>
     <div class="typeUsername">
         <div>
             <p>ユーザー名</p>
