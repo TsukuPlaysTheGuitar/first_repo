@@ -74,14 +74,14 @@ Qn.create(
 
 Qn.create(
     question: "帰り道にスポーツドリンクを買ってきてくれない?", 
-    answer: "Can you get me some　sports drinks on your way home ?", 
+    answer: "Can you get me some sports drinks on your way home ?", 
     originality: "yes"
     )
 
-    Qn.create(
-        question: "日本のある地域の小学校では蛇口を捻るとオレンジジュースが出てくるらしい。", 
-        answer: "I heard there is an elementary school in Japan where when you turn the faucet orange
-        juice come out.", 
-        originality: "yes"
-        )
+Qn.create(
+    question: "日本のある地域の小学校では蛇口を捻るとオレンジジュースが出てくるらしい。", 
+    answer: "I heard there is an elementary school in Japan where when you turn the faucet orange
+    juice come out.", 
+    originality: "yes"
+    )
           
