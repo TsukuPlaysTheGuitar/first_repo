@@ -1,0 +1,12 @@
+<div class="container">
+    <p>登録情報</p>
+    <div class="partOfProfile">
+        <p>管理人ネーム:</p>
+        <%= @user.name %>
+    </div>
+    <div class="partOfProfile">
+        <p>パスワード:</p>
+        <%= @user.password %>
+    </div>
+    <p><%= link_to("管理人ホームへ戻る", "/administrator/home") %></p>
+</div>

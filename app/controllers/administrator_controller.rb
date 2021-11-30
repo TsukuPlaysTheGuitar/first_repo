@@ -4,6 +4,10 @@ class AdministratorController < ApplicationController
     def admin_home
     end
 
+    def admin_profile
+        @user = @current_user
+    end
+
     def qanda_index
         @qanda = Qn.where(originality: "yes")
     end

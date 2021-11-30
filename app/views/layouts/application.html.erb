@@ -24,7 +24,11 @@
       <% if @current_user%>
       <li><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
       <li class="current-user">
+        <% if @current_user.administrator == true %>
+        <%= link_to("ログイン中:  #{@current_user.name}", "/administrator/profile") %>
+        <% else %>
         <%= link_to("ログイン中:  #{@current_user.name}", "/users/#{@current_user.id}/profile") %>
+        <% end %>
       </li>
       <% end %>
     </ul>

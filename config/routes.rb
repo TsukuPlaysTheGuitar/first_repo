@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "administrator/home" => "administrator#admin_home"
+  get "administrator/profile" => "administrator#admin_profile"
   get "administrator/index" => "administrator#qanda_index"
   get "administrator/addqas" => "administrator#add_qas"
   get "administrator/:id/qandaeditform" => "administrator#qanda_editform"
